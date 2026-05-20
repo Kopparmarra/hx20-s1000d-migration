@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pm>
+  <identAndStatusSection>
+    <pmAddress>
+      <pmIdent>
+        <pmCode modelIdentCode="HX20"
+                pmIssuer="FICTV"
+                pmNumber="29-10-00"
+                pmVolume="01"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </pmIdent>
+      <pmAddressItems>
+        <issueDate year="2026" month="05" day="19"/>
+        <pmTitle>HX-20 Hydraulic Pump Maintenance</pmTitle>
+      </pmAddressItems>
+    </pmAddress>
+    <pmStatus issueType="new">
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany enterpriseCode="HX20"/>
+      <originator enterpriseCode="FICTV"/>
+    </pmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <pmEntry>
+      <pmEntryTitle>Hydraulic system overview</pmEntryTitle>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>Hydraulic pump</techName>
+            <infoName>System overview</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </pmEntry>
+
+    <pmEntry>
+      <pmEntryTitle>Hydraulic pump maintenance procedures</pmEntryTitle>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="520" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>Hydraulic pump</techName>
+            <infoName>Remove procedure</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="720" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>Hydraulic pump</techName>
+            <infoName>Install procedure</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="790" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>Hydraulic pump</techName>
+            <infoName>Operational test</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </pmEntry>
+  </content>
+</pm>

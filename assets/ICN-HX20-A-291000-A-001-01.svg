@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">HX-20 Hydraulic Pump Removal Diagram - Black and White v2</title>
+  <desc id="desc">Clean black and white technical line illustration of a hydraulic pump assembly with minimal labels and no crossing callout arrows.</desc>
+
+  <defs>
+    <style>
+      .page{fill:#fff;}
+      .line{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+      .thin{fill:none;stroke:#111;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+      .dash{fill:none;stroke:#111;stroke-width:2;stroke-dasharray:10 8;}
+      .fill-light{fill:#f7f7f7;stroke:#111;stroke-width:3;}
+      .fill-mid{fill:#e7e7e7;stroke:#111;stroke-width:3;}
+      .white{fill:#fff;stroke:#111;stroke-width:3;}
+      .label{font:18px Arial, sans-serif;fill:#111;}
+      .label-bold{font:700 18px Arial, sans-serif;fill:#111;}
+      .small{font:14px Arial, sans-serif;fill:#111;}
+      .title{font:700 28px Arial, sans-serif;fill:#111;}
+      .caption{font:15px Arial, sans-serif;fill:#111;}
+    </style>
+  </defs>
+
+  <rect class="page" x="0" y="0" width="1200" height="760"/>
+
+  <text class="title" x="70" y="58">HX-20 Hydraulic Pump Removal</text>
+  <text class="caption" x="70" y="84">Simplified maintenance illustration - equipment bay view</text>
+
+  <!-- Access panel -->
+  <rect class="white" x="118" y="130" width="690" height="470" rx="4"/>
+  <rect class="dash" x="156" y="170" width="614" height="392" rx="4"/>
+  <line class="thin" x1="118" y1="130" x2="156" y2="170"/>
+  <line class="thin" x1="808" y1="130" x2="770" y2="170"/>
+  <line class="thin" x1="118" y1="600" x2="156" y2="562"/>
+  <line class="thin" x1="808" y1="600" x2="770" y2="562"/>
+  <text class="label-bold" x="154" y="630">Access panel 32-A</text>
+
+  <!-- Hydraulic lines, labelled at ends only -->
+  <path class="line" d="M596 318 C674 286 728 238 786 190"/>
+  <path class="line" d="M602 354 C696 382 740 442 790 508"/>
+  <text class="label" x="836" y="194">Pressure line</text>
+  <text class="label" x="836" y="514">Return line</text>
+
+  <!-- Support bracket -->
+  <path class="fill-mid" d="M336 392 L606 392 L652 478 L292 478 Z"/>
+  <rect class="fill-mid" x="326" y="468" width="292" height="42" rx="3"/>
+  <text class="label" x="330" y="548">MK2 bracket type B</text>
+
+  <!-- Pump assembly -->
+  <ellipse class="fill-light" cx="470" cy="330" rx="132" ry="86"/>
+  <rect class="fill-mid" x="338" y="300" width="264" height="60" rx="30"/>
+  <circle class="fill-light" cx="346" cy="330" r="38"/>
+  <circle class="fill-light" cx="594" cy="330" r="38"/>
+  <circle class="fill-mid" cx="470" cy="330" r="44"/>
+  <circle class="white" cx="470" cy="330" r="22"/>
+  <text class="label-bold" x="186" y="226">Hydraulic pump assembly</text>
+  <line class="thin" x1="398" y1="232" x2="438" y2="286"/>
+
+  <!-- Connector -->
+  <rect class="fill-light" x="286" y="290" width="50" height="82" rx="5"/>
+  <path class="white" d="M252 308 H286 V354 H252 Z"/>
+  <line class="thin" x1="244" y1="318" x2="218" y2="318"/>
+  <line class="thin" x1="244" y1="344" x2="218" y2="344"/>
+  <text class="label-bold" x="166" y="284">P-01 connector</text>
+
+  <!-- Mounting bolts -->
+  <circle class="white" cx="334" cy="416" r="16"/>
+  <circle class="white" cx="606" cy="416" r="16"/>
+  <circle class="white" cx="358" cy="486" r="16"/>
+  <circle class="white" cx="582" cy="486" r="16"/>
+  <line class="thin" x1="326" y1="416" x2="342" y2="416"/>
+  <line class="thin" x1="334" y1="408" x2="334" y2="424"/>
+  <line class="thin" x1="598" y1="416" x2="614" y2="416"/>
+  <line class="thin" x1="606" y1="408" x2="606" y2="424"/>
+  <line class="thin" x1="350" y1="486" x2="366" y2="486"/>
+  <line class="thin" x1="358" y1="478" x2="358" y2="494"/>
+  <line class="thin" x1="574" y1="486" x2="590" y2="486"/>
+  <line class="thin" x1="582" y1="478" x2="582" y2="494"/>
+  <text class="label" x="836" y="426">4 mounting bolts</text>
+  <line class="thin" x1="820" y1="420" x2="622" y2="416"/>
+
+  <!-- Lift direction -->
+  <line class="line" x1="470" y1="262" x2="470" y2="190"/>
+  <path d="M470 174 L458 194 H482 Z" fill="#111"/>
+  <text class="label" x="492" y="202">Lift clear</text>
+
+</svg>

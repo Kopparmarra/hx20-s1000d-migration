@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule>
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="HX20"
+                systemDiffCode="A"
+                systemCode="29"
+                subSystemCode="1"
+                subSubSystemCode="0"
+                assyCode="00"
+                disassyCode="00"
+                disassyCodeVariant="A"
+                infoCode="040"
+                infoCodeVariant="A"
+                itemLocationCode="A"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </dmIdent>
+      <dmAddressItems>
+        <issueDate year="2026" month="05" day="19"/>
+        <dmTitle>
+          <techName>Hydraulic pump</techName>
+          <infoName>System overview</infoName>
+        </dmTitle>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus issueType="new">
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany enterpriseCode="HX20"/>
+      <originator enterpriseCode="FICTV"/>
+      <applic>
+        <displayText>
+          <simplePara>HX-20 MK1 and MK2 aircraft</simplePara>
+        </displayText>
+        <evaluate andOr="or">
+          <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="mk1"/>
+          <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="mk2"/>
+        </evaluate>
+      </applic>
+      <brexDmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>
+      </brexDmRef>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <description>
+      <para>The HX-20 hydraulic pump assembly supplies pressure to selected flight control and utility systems. Maintenance on the pump assembly requires electrical isolation, hydraulic pressure release and protection of disconnected hydraulic lines.</para>
+      <para>The pump is installed behind access panel 32-A. MK2 aircraft use bracket type B and require an additional alignment check during installation.</para>
+    </description>
+  </content>
+</dmodule>

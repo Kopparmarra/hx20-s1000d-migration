@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule>
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="HX20"
+                systemDiffCode="A"
+                systemCode="29"
+                subSystemCode="1"
+                subSubSystemCode="0"
+                assyCode="00"
+                disassyCode="00"
+                disassyCodeVariant="A"
+                infoCode="720"
+                infoCodeVariant="A"
+                itemLocationCode="A"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+      </dmIdent>
+      <dmAddressItems>
+        <issueDate year="2026" month="05" day="19"/>
+        <dmTitle>
+          <techName>Hydraulic pump</techName>
+          <infoName>Install procedure</infoName>
+        </dmTitle>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus issueType="new">
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany enterpriseCode="HX20"/>
+      <originator enterpriseCode="FICTV"/>
+      <applic>
+        <displayText>
+          <simplePara>HX-20 MK1 and MK2 aircraft</simplePara>
+        </displayText>
+        <evaluate andOr="or">
+          <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="mk1"/>
+          <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="mk2"/>
+        </evaluate>
+      </applic>
+      <brexDmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>
+      </brexDmRef>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <reqCondGroup>
+          <reqCondNoRef>
+            <reqCond>Removed seals have been inspected and replaced if damaged.</reqCond>
+          </reqCondNoRef>
+          <reqCondNoRef>
+            <reqCond>Replacement seals and approved hydraulic fluid are available.</reqCond>
+          </reqCondNoRef>
+        </reqCondGroup>
+        <reqPersons>
+          <person man="1"/>
+        </reqPersons>
+        <reqSupportEquips>
+          <supportEquipDescr>
+            <name>Calibrated torque wrench</name>
+          </supportEquipDescr>
+          <supportEquipDescr>
+            <name>Inspection flashlight and mirror</name>
+          </supportEquipDescr>
+        </reqSupportEquips>
+        <reqSupplies>
+          <supplyDescr>
+            <name>Approved hydraulic fluid HX-11</name>
+          </supplyDescr>
+          <supplyDescr>
+            <name>Replacement seals</name>
+          </supplyDescr>
+        </reqSupplies>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <proceduralStep>
+          <para>Position the hydraulic pump assembly on the support bracket.</para>
+        </proceduralStep>
+        <proceduralStep>
+          <applic>
+            <displayText>
+              <simplePara>HX-20 MK2 aircraft</simplePara>
+            </displayText>
+            <evaluate andOr="and">
+              <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="mk2"/>
+            </evaluate>
+          </applic>
+          <para>Verify that bracket type B is installed and aligned.</para>
+        </proceduralStep>
+        <proceduralStep>
+          <para>Install the mounting bolts by hand.</para>
+        </proceduralStep>
+        <proceduralStep>
+          <para>Tighten the mounting bolts to the approved torque values.</para>
+          <note>
+            <para>Torque values are controlled in the standard torque values data module and must be verified before installation.</para>
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="20" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="320" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>
+          </note>
+        </proceduralStep>
+        <proceduralStep>
+          <para>Reconnect the hydraulic pressure and return lines.</para>
+        </proceduralStep>
+        <proceduralStep>
+          <para>Reconnect electrical connector P-01.</para>
+        </proceduralStep>
+      </mainProcedure>
+
+      <closeRqmts>
+        <reqCondGroup>
+          <reqCondNoRef>
+            <reqCond>The hydraulic pump assembly is installed and ready for the operational test procedure.</reqCond>
+          </reqCondNoRef>
+        </reqCondGroup>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="790" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>
+      </closeRqmts>
+    </procedure>
+  </content>
+</dmodule>

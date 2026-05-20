@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HX-20 S1000D Manual Migration</title>
+
+<style>
+:root{
+    --ink:#151515;
+    --muted:#555555;
+    --line:#d8d8d8;
+    --soft:#f6f6f2;
+    --accent:#1f5f5b;
+    --accent-soft:#e8f1ef;
+    --s1000d:#fff4c7;
+    --s1000d-line:#eadb91;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#ffffff;
+    color:var(--ink);
+    font-family:Arial, sans-serif;
+    line-height:1.6;
+}
+
+.container{
+    max-width:1120px;
+    margin:auto;
+    padding:44px 24px 80px;
+}
+
+.kicker{
+    color:var(--accent);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    margin-bottom:10px;
+    text-transform:uppercase;
+}
+
+h1{
+    max-width:760px;
+    font-size:clamp(34px, 5vw, 56px);
+    line-height:1.04;
+    margin:0 0 16px;
+}
+
+h2{
+    font-size:30px;
+    margin-top:60px;
+    margin-bottom:18px;
+}
+
+h3{
+    margin-top:0;
+    margin-bottom:10px;
+}
+
+.lead{
+    max-width:760px;
+    font-size:18px;
+    color:#303030;
+    margin-bottom:0;
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin-top:24px;
+    margin-bottom:38px;
+}
+
+.summary div,
+.card,
+.reader,
+.structure{
+    border:1px solid var(--line);
+    background:#ffffff;
+}
+
+.summary div{
+    padding:14px;
+}
+
+.summary strong{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:4px;
+}
+
+.summary span{
+    font-size:14px;
+}
+
+.card{
+    padding:24px;
+    margin-top:24px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.comparison{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.comparison ul{
+    margin-bottom:0;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid var(--line);
+    background:var(--soft);
+    padding:5px 8px;
+    margin:4px 4px 4px 0;
+    font-size:13px;
+}
+
+iframe{
+    width:100%;
+    height:700px;
+    border:1px solid var(--line);
+}
+
+.figure{
+    border:1px solid var(--line);
+    background:#ffffff;
+    margin-top:24px;
+    padding:18px;
+    margin-bottom:34px;
+}
+
+.figure img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.figure figcaption{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:10px;
+}
+
+.figure-note{
+    border-top:1px solid var(--line);
+    margin-top:18px;
+    padding-top:18px;
+}
+
+.figure-note h3{
+    margin-bottom:8px;
+}
+
+.figure-note p{
+    margin-bottom:0;
+}
+
+.illustration-panel{
+    align-items:start;
+    border:1px solid var(--line);
+    background:#ffffff;
+    display:grid;
+    gap:24px;
+    grid-template-columns:1.1fr .9fr;
+    margin:18px 0 34px;
+    padding:18px;
+}
+
+.illustration-panel img{
+    display:block;
+    max-height:420px;
+    object-fit:contain;
+    width:100%;
+}
+
+.illustration-panel .figure-note{
+    border-top:0;
+    margin-top:0;
+    padding-top:0;
+}
+
+.button{
+    display:inline-block;
+    margin:8px 8px 0 0;
+    background:var(--ink);
+    color:white;
+    padding:10px 14px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.button.secondary{
+    background:white;
+    color:var(--ink);
+    border:1px solid var(--ink);
+}
+
+pre{
+    background:#f7f7f7;
+    padding:18px;
+    overflow:auto;
+    font-size:14px;
+    border:1px solid var(--line);
+    line-height:1.45;
+}
+
+.structure{
+    padding:18px;
+    background:#fbfbfb;
+    font-family:monospace;
+    margin-bottom:18px;
+}
+
+.reader{
+    padding:22px;
+    background:#fbfbfb;
+}
+
+.note{
+    border-left:4px solid var(--accent);
+    background:var(--accent-soft);
+    padding:14px 16px;
+    margin-top:18px;
+}
+
+.s1000d-band{
+    background:var(--s1000d);
+    border:1px solid var(--s1000d-line);
+    margin-top:60px;
+    padding:30px;
+}
+
+.s1000d-band h2{
+    font-size:26px;
+    margin-top:42px;
+    margin-bottom:14px;
+}
+
+.s1000d-band h2:first-child{
+    margin-top:0;
+}
+
+.s1000d-band .card,
+.s1000d-band .reader,
+.s1000d-band .structure,
+.s1000d-band .figure,
+.s1000d-band .illustration-panel{
+    border-color:var(--s1000d-line);
+}
+
+.s1000d-band .figure-note{
+    border-top-color:var(--s1000d-line);
+}
+
+.s1000d-band pre{
+    background:#fffaf0;
+    border-color:var(--s1000d-line);
+}
+
+.s1000d-band .card + h2{
+    margin-top:34px;
+}
+
+.small{
+    color:var(--muted);
+    font-size:14px;
+}
+
+@media(max-width:900px){
+    .grid,
+    .comparison,
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    iframe{
+        height:520px;
+    }
+
+    .s1000d-band{
+        padding:22px;
+    }
+
+    .illustration-panel{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<p class="kicker">S1000D migration case study</p>
+<h1>HX-20 Legacy Maintenance Manual to S1000D</h1>
+
+<p class="lead">
+Fictional helicopter maintenance procedure audited, restructured and prepared as simplified S1000D-style data modules.
+</p>
+
+<section class="summary" aria-label="Project summary">
+    <div>
+        <strong>Source</strong>
+        <span>Legacy maintenance DOCX</span>
+    </div>
+    <div>
+        <strong>Target</strong>
+        <span>S1000D-style XML modules</span>
+    </div>
+    <div>
+        <strong>Focus</strong>
+        <span>Procedures, DMCs, applicability</span>
+    </div>
+    <div>
+        <strong>Output</strong>
+        <span>Data modules and publication module</span>
+    </div>
+</section>
+
+<h2>Source Problem</h2>
+
+<div class="card">
+    <p>
+    The source document is a fictional Word-based maintenance manual for the HX-20 helicopter hydraulic pump. It represents a common migration problem: operationally important information stored in a document format that is difficult to reuse, validate or filter for product variants.
+    </p>
+
+    <div class="comparison">
+        <div>
+            <h3>Legacy document issues</h3>
+            <ul>
+                <li>Paragraph-based removal and installation procedures</li>
+                <li>Repeated safety instructions in multiple sections</li>
+                <li>MK2 configuration notes embedded in the main procedure</li>
+                <li>Tool and material information mixed into narrative text</li>
+                <li>No formal data module identity or publication structure</li>
+            </ul>
+        </div>
+        <div>
+            <h3>S1000D migration goals</h3>
+            <ul>
+                <li>Separate content into maintainable data modules</li>
+                <li>Assign clear data module codes for each information unit</li>
+                <li>Move variant-specific instructions into applicability-controlled content</li>
+                <li>Prepare procedures for validation and controlled publishing</li>
+                <li>Assemble the final output through a publication module</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="note">
+    The aircraft and manual are fictional, but the migration decisions mirror realistic technical publication work for complex equipment programs.
+    </p>
+</div>
+
+<h2>Original Document</h2>
+
+<div class="card">
+    <p>
+    The original DOCX is included as the migration source. It intentionally contains repeated safety content, embedded configuration notes and long procedural paragraphs so the restructuring work is visible.
+    </p>
+
+    <a class="button" href="HX20_Legacy_Helicopter_Manual.docx">Download source DOCX</a>
+    <a class="button secondary" href="HX20_Legacy_Helicopter_Manual_Preview.pdf">Open PDF preview</a>
+</div>
+
+<div class="card">
+    <h3>Source preview</h3>
+    <iframe src="HX20_Legacy_Helicopter_Manual_Preview.pdf" title="HX-20 legacy manual PDF preview"></iframe>
+</div>
+
+<section class="s1000d-band" aria-label="S1000D migration approach">
+
+<h2>S1000D Migration Approach</h2>
+
+<div class="card">
+    <h3>Real-World Workflow</h3>
+    <ol>
+        <li><strong>Define project rules.</strong> Confirm the S1000D issue, business rules, BREX, SNS structure and required delivery format.</li>
+        <li><strong>Audit the source manual.</strong> Classify procedures, safety information, tools, variants, illustrations and cross-references.</li>
+        <li><strong>Create a DMRL.</strong> Define the required data modules, information types, ownership and status information.</li>
+        <li><strong>Assign data module codes.</strong> Map each content unit to a DMC based on system, subsystem, assembly and information code.</li>
+        <li><strong>Rewrite into structured procedures.</strong> Convert paragraph-based instructions into preliminary requirements, procedural steps and close-up requirements.</li>
+        <li><strong>Model applicability.</strong> Separate MK1 and MK2 differences with applicability instead of inline notes.</li>
+        <li><strong>Validate and publish.</strong> Check XML, schema, BREX rules, references and publication module output.</li>
+    </ol>
+    <p class="note">
+    S1000D is not a software tool. It is a technical publication specification. In production, this workflow would normally use an XML editor, validation tools, a CSDB and publishing tools.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Content Mapping</h3>
+
+    <pre>Legacy source section            S1000D-style output
+------------------------------   --------------------------------
+Hydraulic system overview        Description data module
+Hydraulic pump removal           Procedure data module
+Hydraulic pump installation      Procedure data module
+Operational test                 Operational test data module
+Safety precautions               Shared procedural safety content
+MK2 bracket note                 Applicability-controlled step
+Full maintenance manual          Publication module</pre>
+
+    <p class="small">
+    In S1000D, a file name such as <strong>DMC-HX20-A-29-10-00-00A-520A-A.xml</strong> is not just a readable label. It is a data module code that identifies the product, system, subsystem, information type and issue context.
+    </p>
+</div>
+
+<h2>Example S1000D Output</h2>
+
+<figure class="illustration-panel">
+    <div>
+        <img src="assets/ICN-HX20-A-291000-A-001-01.svg" alt="Black and white technical line illustration showing the HX-20 hydraulic pump assembly, connector P-01, hydraulic lines, mounting bolts and MK2 bracket type B.">
+        <figcaption>ICN-style technical illustration concept for the hydraulic pump removal procedure.</figcaption>
+    </div>
+    <div class="figure-note">
+        <h3>Illustration Handling</h3>
+        <p>
+        In a production S1000D workflow, this illustration would be managed as a controlled information entity with an ICN and stored separately from the procedure data module. The procedure module would reference the illustration, while applicability rules would define whether it applies to MK1, MK2 or both configurations.
+        </p>
+    </div>
+</figure>
+
+<div class="grid">
+    <div class="reader">
+        <h3>Procedure data module: Remove hydraulic pump</h3>
+        <p><strong>Data module:</strong> DMC-HX20-A-29-10-00-00A-520A-A.xml</p>
+        <p><strong>Information type:</strong> Maintenance removal procedure</p>
+        <p><strong>Applicability:</strong> HX-20 MK1 and MK2, with MK2-specific bracket step</p>
+
+        <ol>
+            <li>Disconnect electrical connector P-01.</li>
+            <li>Disconnect hydraulic return and pressure lines.</li>
+            <li>Install protective caps on disconnected hydraulic lines.</li>
+            <li>Remove the mounting bolts from the support bracket.</li>
+            <li>For MK2 aircraft, record the installed bracket type.</li>
+            <li>Lift the hydraulic pump from the bracket.</li>
+        </ol>
+    </div>
+
+    <div>
+<pre>&lt;proceduralStep&gt;
+  &lt;para&gt;Disconnect electrical connector P-01.&lt;/para&gt;
+&lt;/proceduralStep&gt;
+
+&lt;proceduralStep&gt;
+  &lt;applic&gt;
+    &lt;evaluate andOr="and"&gt;
+      &lt;assert applicPropertyIdent="model"
+              applicPropertyType="prodattr"
+              applicPropertyValues="mk2"/&gt;
+    &lt;/evaluate&gt;
+  &lt;/applic&gt;
+  &lt;para&gt;Record the installed bracket type.&lt;/para&gt;
+&lt;/proceduralStep&gt;</pre>
+
+        <a class="button" href="s1000d/README.md">Read S1000D notes</a>
+        <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-040A-A.xml">View overview data module</a>
+        <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-520A-A.xml">View removal data module</a>
+        <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-720A-A.xml">View installation data module</a>
+        <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-790A-A.xml">View operational test data module</a>
+        <a class="button secondary" href="s1000d/PMC-HX20-A-29-10-00-00A-000A-A.xml">View publication module</a>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Mini DMRL</h3>
+    <pre>Data module code                              Information type       Status
+------------------------------------------   --------------------   --------
+DMC-HX20-A-29-10-00-00A-040A-A.xml           System overview        Draft
+DMC-HX20-A-29-10-00-00A-520A-A.xml           Removal procedure      Draft
+DMC-HX20-A-29-10-00-00A-720A-A.xml           Installation procedure Draft
+DMC-HX20-A-29-10-00-00A-790A-A.xml           Operational test       Draft
+PMC-HX20-A-29-10-00-00A-000A-A.xml           Publication module     Draft</pre>
+</div>
+
+<div class="card">
+    <h3>Deliverables</h3>
+    <p>
+    The project package includes the original Word manual, a PDF preview, simplified S1000D-style data modules, a publication module, an ICN-style illustration and explanatory migration notes.
+    </p>
+
+    <span class="tag">S1000D migration planning</span>
+    <span class="tag">Data module structure</span>
+    <span class="tag">DMC assignment</span>
+    <span class="tag">Applicability</span>
+    <span class="tag">Maintenance procedures</span>
+    <span class="tag">Operational test module</span>
+    <span class="tag">Publication module</span>
+    <span class="tag">ICN-style technical illustration</span>
+</div>
+
+</section>
+
+<h2>What This Demonstrates</h2>
+
+<div class="card">
+    <p>
+    This project shows how a technical writer can move beyond document cleanup and think in terms of controlled technical information: source audit, module planning, procedural rewrite, applicability handling and publication assembly.
+    </p>
+    <p>
+    The result is a focused S1000D-oriented portfolio case for aerospace, defense, marine or other complex-system documentation environments.
+    </p>
+</div>
+
+</main>
+
+</body>
+</html>
