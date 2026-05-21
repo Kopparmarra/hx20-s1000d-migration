@@ -105,6 +105,27 @@ h3{
     margin-top:24px;
 }
 
+.deliverable-list{
+    display:grid;
+    gap:10px;
+    margin-top:16px;
+}
+
+.deliverable-list a{
+    border:1px solid var(--line);
+    color:var(--ink);
+    display:block;
+    padding:12px 14px;
+    text-decoration:none;
+}
+
+.deliverable-list span{
+    color:var(--muted);
+    display:block;
+    font-size:13px;
+    margin-top:2px;
+}
+
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -333,6 +354,20 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </div>
 </section>
 
+<div class="card">
+    <h3>Migration Output</h3>
+    <p>
+    This is not a renamed manual page. The project output is a compact S1000D-style package in the <strong>s1000d/</strong> folder: data modules, a publication module, applicability handling, an ICN-style illustration and migration notes.
+    </p>
+    <div class="deliverable-list">
+        <a href="s1000d/DMC-HX20-A-29-10-00-00A-040A-A.xml">System overview data module <span>DMC-HX20-A-29-10-00-00A-040A-A.xml</span></a>
+        <a href="s1000d/DMC-HX20-A-29-10-00-00A-520A-A.xml">Removal procedure data module <span>DMC-HX20-A-29-10-00-00A-520A-A.xml</span></a>
+        <a href="s1000d/DMC-HX20-A-29-10-00-00A-720A-A.xml">Installation procedure data module <span>DMC-HX20-A-29-10-00-00A-720A-A.xml</span></a>
+        <a href="s1000d/DMC-HX20-A-29-10-00-00A-790A-A.xml">Operational test data module <span>DMC-HX20-A-29-10-00-00A-790A-A.xml</span></a>
+        <a href="s1000d/PMC-HX20-A-29-10-00-00A-000A-A.xml">Publication module <span>PMC-HX20-A-29-10-00-00A-000A-A.xml</span></a>
+    </div>
+</div>
+
 <h2>Source Problem</h2>
 
 <div class="card">
@@ -368,11 +403,11 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </p>
 </div>
 
-<h2>Original Document</h2>
+<h2>Legacy Source Document</h2>
 
 <div class="card">
     <p>
-    The original DOCX is included as the migration source. It intentionally contains repeated safety content, embedded configuration notes and long procedural paragraphs so the restructuring work is visible.
+    The DOCX and PDF below are the source material used for the migration exercise, not the final migrated output. The source intentionally contains repeated safety content, embedded configuration notes and long procedural paragraphs so the restructuring work is visible.
     </p>
 
     <a class="button" href="HX20_Legacy_Helicopter_Manual.docx">Download source DOCX</a>
@@ -436,7 +471,7 @@ Full maintenance manual          Publication module</pre>
     </ul>
 </div>
 
-<h2>Example S1000D Output</h2>
+<h2>Delivered S1000D-Style Output</h2>
 
 <figure class="illustration-panel">
     <div>
@@ -507,7 +542,7 @@ PMC-HX20-A-29-10-00-00A-000A-A.xml           Publication module     Draft</pre>
 <div class="card">
     <h3>Deliverables</h3>
     <p>
-    The project package includes the original Word manual, a PDF preview, simplified S1000D-style data modules, a publication module, an ICN-style illustration and explanatory migration notes.
+    The project package includes the legacy Word/PDF source, simplified S1000D-style data modules, a publication module, an ICN-style illustration and explanatory migration notes. The XML files are the migration deliverables; the Word/PDF files are included only as source context.
     </p>
 
     <span class="tag">S1000D migration planning</span>
