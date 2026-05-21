@@ -211,8 +211,15 @@ iframe{
 
 .illustration-panel .figure-note{
     border-top:0;
+    grid-column:2;
+    grid-row:1 / span 2;
     margin-top:0;
     padding-top:0;
+}
+
+.illustration-panel figcaption{
+    grid-column:1;
+    margin-top:-12px;
 }
 
 .button{
@@ -320,6 +327,12 @@ pre{
     .illustration-panel{
         grid-template-columns:1fr;
     }
+
+    .illustration-panel .figure-note,
+    .illustration-panel figcaption{
+        grid-column:auto;
+        grid-row:auto;
+    }
 }
 </style>
 </head>
@@ -354,8 +367,9 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </div>
 </section>
 
+<h2>Migration Output</h2>
+
 <div class="card">
-    <h3>Migration Output</h3>
     <p>
     This is not a renamed manual page. The project output is a compact S1000D-style package in the <strong>s1000d/</strong> folder: data modules, a publication module, applicability handling, an ICN-style illustration and migration notes.
     </p>
@@ -476,8 +490,8 @@ Full maintenance manual          Publication module</pre>
 <figure class="illustration-panel">
     <div>
         <img src="assets/ICN-HX20-A-291000-A-001-01.svg" alt="Black and white technical line illustration showing the HX-20 hydraulic pump assembly, connector P-01, hydraulic lines, mounting bolts and MK2 bracket type B.">
-        <figcaption>ICN-style technical illustration concept for the hydraulic pump removal procedure.</figcaption>
     </div>
+    <figcaption>ICN-style technical illustration concept for the hydraulic pump removal procedure.</figcaption>
     <div class="figure-note">
         <h3>Illustration Handling</h3>
         <p>
