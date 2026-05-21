@@ -67,6 +67,12 @@
             <name>Calibrated torque wrench</name>
           </supportEquipDescr>
           <supportEquipDescr>
+            <name>Line fitting wrench set</name>
+            <note>
+              <para>Wrench sizes are controlled by engineering source data and must be confirmed before authoring a production procedure.</para>
+            </note>
+          </supportEquipDescr>
+          <supportEquipDescr>
             <name>Inspection flashlight and mirror</name>
           </supportEquipDescr>
         </reqSupportEquips>
@@ -111,6 +117,14 @@
         </proceduralStep>
         <proceduralStep>
           <para>Reconnect the hydraulic pressure and return lines.</para>
+          <note>
+            <para>Line and fitting identification must be verified against the approved hydraulic schematic before release.</para>
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="320" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>
+          </note>
         </proceduralStep>
         <proceduralStep>
           <para>Reconnect electrical connector P-01.</para>

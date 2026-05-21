@@ -32,6 +32,17 @@ The sample uses `FICTV` as a fictional enterprise code for portfolio purposes. A
 
 These files are intentionally compact portfolio examples. A production S1000D delivery would be validated against the selected S1000D issue, project business rules, BREX, SNS policy and CSDB delivery requirements.
 
+## Engineering data note
+
+The sample does not invent safety-critical technical values. In a production assignment, the technical writer would request or verify the following items from approved engineering source data before release:
+
+- mounting bolt torque values
+- hydraulic line and fitting identification, including wrench sizes
+- approved cleaning method and materials
+- operational test pressure and hold time
+- maximum permitted leakage rate
+- normal hydraulic pressure range
+
 ## Naming note
 
 The example names use S1000D-style data module and publication module codes. In a real project, these codes would be defined according to the project's SNS structure, business rules, information code policy and issue management process.

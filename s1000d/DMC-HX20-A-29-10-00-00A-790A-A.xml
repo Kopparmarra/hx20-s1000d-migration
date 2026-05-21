@@ -58,6 +58,9 @@
           <reqCondNoRef>
             <reqCond>All protective caps have been removed.</reqCond>
           </reqCondNoRef>
+          <reqCondNoRef>
+            <reqCond>Operational pressure limits and leakage criteria have been confirmed from approved engineering data.</reqCond>
+          </reqCondNoRef>
         </reqCondGroup>
         <reqPersons>
           <person man="1"/>
@@ -70,19 +73,36 @@
         </proceduralStep>
         <proceduralStep>
           <para>Pressurize the hydraulic system.</para>
+          <note>
+            <para>Test pressure and hold time are controlled by the hydraulic system test limits data module and must be confirmed before release.</para>
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="HX20" systemDiffCode="A" systemCode="29" subSystemCode="1" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="320" infoCodeVariant="B" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>
+          </note>
         </proceduralStep>
         <proceduralStep>
           <para>Inspect hydraulic lines and fittings for leakage during operation.</para>
+          <note>
+            <para>Maximum permitted leakage rate is controlled by approved engineering data and is not invented in this portfolio example.</para>
+          </note>
         </proceduralStep>
         <proceduralStep>
           <para>Verify stable hydraulic pressure during flight control surface checks.</para>
+          <note>
+            <para>Acceptable pressure range must be verified against the normal operating pressure reference before release.</para>
+          </note>
+        </proceduralStep>
+        <proceduralStep>
+          <para>Close access panel 32-A and secure fasteners.</para>
         </proceduralStep>
       </mainProcedure>
 
       <closeRqmts>
         <reqCondGroup>
           <reqCondNoRef>
-            <reqCond>The hydraulic system has no visible leakage and pressure remains stable during the operational check.</reqCond>
+            <reqCond>The hydraulic system has no visible leakage, pressure remains within the approved operating range and access panel 32-A is closed and secured.</reqCond>
           </reqCondNoRef>
         </reqCondGroup>
       </closeRqmts>
