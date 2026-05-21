@@ -29,6 +29,10 @@ body{
     line-height:1.6;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 .container{
     max-width:1120px;
     margin:auto;
@@ -105,17 +109,62 @@ h3{
     margin-top:24px;
 }
 
+.s1000d-badge{
+    background:var(--s1000d);
+    border:2px solid var(--s1000d-line);
+    margin-top:18px;
+    padding:12px 14px;
+}
+
+.s1000d-badge strong{
+    display:block;
+    font-size:15px;
+    margin-bottom:2px;
+}
+
+.s1000d-badge span{
+    color:#333333;
+    display:block;
+    font-size:14px;
+    line-height:1.45;
+}
+
+.quick-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+}
+
+.quick-nav a,
+.back-top{
+    border:1px solid var(--ink);
+    color:var(--ink);
+    display:inline-block;
+    font-size:14px;
+    padding:7px 10px;
+    text-decoration:none;
+}
+
 .deliverable-list{
     display:grid;
-    gap:10px;
-    margin-top:16px;
+    gap:8px;
+    grid-template-columns:repeat(2, 1fr);
+    margin-top:12px;
+}
+
+.module-card .module-link{
+    color:var(--accent);
+    display:inline-block;
+    font-weight:700;
+    margin-top:10px;
 }
 
 .deliverable-list a{
     border:1px solid var(--line);
     color:var(--ink);
     display:block;
-    padding:12px 14px;
+    padding:9px 11px;
     text-decoration:none;
 }
 
@@ -130,6 +179,65 @@ h3{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:24px;
+}
+
+.module-cards{
+    display:grid;
+    gap:16px;
+    grid-template-columns:repeat(3, 1fr);
+    margin-bottom:24px;
+}
+
+.module-card{
+    background:#ffffff;
+    border:1px solid var(--s1000d-line);
+    padding:18px;
+}
+
+.module-card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.module-code{
+    color:var(--muted);
+    display:block;
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.35;
+    margin-bottom:12px;
+    overflow-wrap:anywhere;
+}
+
+.module-card p{
+    margin:0 0 8px;
+}
+
+.xml-panel pre{
+    margin-top:0;
+}
+
+.output-view{
+    display:grid;
+    gap:24px;
+    grid-template-columns:.9fr 1.1fr;
+}
+
+.procedure-summary{
+    background:#ffffff;
+    border:1px solid var(--s1000d-line);
+    padding:22px;
+}
+
+.procedure-summary ol{
+    margin-bottom:0;
+}
+
+.module-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
 }
 
 .comparison{
@@ -309,9 +417,16 @@ pre{
     font-size:14px;
 }
 
+.back-top{
+    margin-top:24px;
+}
+
 @media(max-width:900px){
     .grid,
+    .module-cards,
+    .output-view,
     .comparison,
+    .deliverable-list,
     .summary{
         grid-template-columns:1fr;
     }
@@ -339,7 +454,7 @@ pre{
 
 <body>
 
-<main class="container">
+<main class="container" id="top">
 
 <p class="kicker">S1000D migration case study</p>
 <h1>HX-20 Legacy Maintenance Manual to S1000D</h1>
@@ -347,6 +462,20 @@ pre{
 <p class="lead">
 Fictional helicopter maintenance procedure audited, restructured and prepared as simplified S1000D-style data modules.
 </p>
+
+<div class="s1000d-badge">
+    <strong>S1000D-style migration package</strong>
+    <span>The key deliverables are XML data modules, a publication module, a mini DMRL and controlled migration notes. The DOCX/PDF files are legacy source material.</span>
+</div>
+
+<nav class="quick-nav" aria-label="Project shortcuts">
+    <a href="#migration-output">Output</a>
+    <a href="#source-problem">Source Problem</a>
+    <a href="#legacy-source">Legacy Source</a>
+    <a href="#migration-approach">Migration Approach</a>
+    <a href="#xml-modules">XML Modules</a>
+    <a href="#dmrl">DMRL</a>
+</nav>
 
 <section class="summary" aria-label="Project summary">
     <div>
@@ -367,11 +496,11 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </div>
 </section>
 
-<h2>Migration Output</h2>
+<h2 id="migration-output">Migration Output</h2>
 
 <div class="card">
     <p>
-    This is not a renamed manual page. The project output is a compact S1000D-style package in the <strong>s1000d/</strong> folder: data modules, a publication module, applicability handling, an ICN-style illustration and migration notes.
+    The migrated output is a compact S1000D-style package in the <strong>s1000d/</strong> folder.
     </p>
     <div class="deliverable-list">
         <a href="s1000d/DMC-HX20-A-29-10-00-00A-040A-A.xml">System overview data module <span>DMC-HX20-A-29-10-00-00A-040A-A.xml</span></a>
@@ -382,7 +511,7 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </div>
 </div>
 
-<h2>Source Problem</h2>
+<h2 id="source-problem">Source Problem</h2>
 
 <div class="card">
     <p>
@@ -417,11 +546,14 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     </p>
 </div>
 
-<h2>Legacy Source Document</h2>
+<h2 id="legacy-source">Legacy Source Document</h2>
 
 <div class="card">
     <p>
     The DOCX and PDF below are the source material used for the migration exercise, not the final migrated output. The source intentionally contains repeated safety content, embedded configuration notes and long procedural paragraphs so the restructuring work is visible.
+    </p>
+    <p class="note">
+    The legacy source also includes a "Field maintenance observations" section. It is kept in the source to show a realistic legacy problem: review and documentation-quality comments mixed into a work instruction. It is intentionally not migrated into the procedure data modules.
     </p>
 
     <a class="button" href="HX20_Legacy_Helicopter_Manual.docx">Download source DOCX</a>
@@ -433,7 +565,7 @@ Fictional helicopter maintenance procedure audited, restructured and prepared as
     <iframe src="HX20_Legacy_Helicopter_Manual_Preview.pdf" title="HX-20 legacy manual PDF preview"></iframe>
 </div>
 
-<section class="s1000d-band" aria-label="S1000D migration approach">
+<section class="s1000d-band" id="migration-approach" aria-label="S1000D migration approach">
 
 <h2>S1000D Migration Approach</h2>
 
@@ -485,7 +617,7 @@ Full maintenance manual          Publication module</pre>
     </ul>
 </div>
 
-<h2>Delivered S1000D-Style Output</h2>
+<h2 id="xml-modules">Delivered S1000D-Style Output</h2>
 
 <figure class="illustration-panel">
     <div>
@@ -500,24 +632,50 @@ Full maintenance manual          Publication module</pre>
     </div>
 </figure>
 
-<div class="grid">
-    <div class="reader">
-        <h3>Procedure data module: Remove hydraulic pump</h3>
-        <p><strong>Data module:</strong> DMC-HX20-A-29-10-00-00A-520A-A.xml</p>
-        <p><strong>Information type:</strong> Maintenance removal procedure</p>
-        <p><strong>Applicability:</strong> HX-20 MK1 and MK2, with MK2-specific bracket step</p>
-
-        <ol>
-            <li>Disconnect electrical connector P-01.</li>
-            <li>Disconnect hydraulic return and pressure lines.</li>
-            <li>Install protective caps on disconnected hydraulic lines.</li>
-            <li>Remove the mounting bolts from the support bracket.</li>
-            <li>For MK2 aircraft, record the installed bracket type.</li>
-            <li>Lift the hydraulic pump from the bracket.</li>
-        </ol>
+<div class="module-cards">
+    <div class="module-card">
+        <h3>520A Removal</h3>
+        <span class="module-code">DMC-HX20-A-29-10-00-00A-520A-A.xml</span>
+        <p><strong>Purpose:</strong> Remove hydraulic pump.</p>
+        <p><strong>Shows:</strong> MK2 applicability and ICN graphic reference.</p>
+        <a class="module-link" href="s1000d/DMC-HX20-A-29-10-00-00A-520A-A.xml">Open full removal XML</a>
     </div>
 
-    <div>
+    <div class="module-card">
+        <h3>720A Installation</h3>
+        <span class="module-code">DMC-HX20-A-29-10-00-00A-720A-A.xml</span>
+        <p><strong>Purpose:</strong> Install pump and reconnect systems.</p>
+        <p><strong>Shows:</strong> tools, supplies, torque reference and test handoff.</p>
+        <a class="module-link" href="s1000d/DMC-HX20-A-29-10-00-00A-720A-A.xml">Open full installation XML</a>
+    </div>
+
+    <div class="module-card">
+        <h3>790A Operational Test</h3>
+        <span class="module-code">DMC-HX20-A-29-10-00-00A-790A-A.xml</span>
+        <p><strong>Purpose:</strong> Verify system after installation.</p>
+        <p><strong>Shows:</strong> pressure, leakage and close-up requirements as controlled data.</p>
+        <a class="module-link" href="s1000d/DMC-HX20-A-29-10-00-00A-790A-A.xml">Open full test XML</a>
+    </div>
+</div>
+
+<div class="output-view">
+    <div class="procedure-summary">
+        <h3>Rendered Procedure Summary</h3>
+        <p>
+        The legacy procedure is separated into focused modules instead of one long document section.
+        </p>
+        <ol>
+            <li><strong>Removal:</strong> disconnect, cap lines and remove pump.</li>
+            <li><strong>Installation:</strong> install pump, reconnect lines and reference approved torque data.</li>
+            <li><strong>Operational test:</strong> pressurize, inspect leakage and close access panel 32-A.</li>
+        </ol>
+        <div class="module-actions">
+            <a class="button" href="s1000d/README.md">Read S1000D notes</a>
+            <a class="button secondary" href="s1000d/PMC-HX20-A-29-10-00-00A-000A-A.xml">View publication module</a>
+        </div>
+    </div>
+
+    <div class="xml-panel">
 <pre>&lt;proceduralStep&gt;
   &lt;para&gt;Disconnect electrical connector P-01.&lt;/para&gt;
 &lt;/proceduralStep&gt;
@@ -531,9 +689,22 @@ Full maintenance manual          Publication module</pre>
     &lt;/evaluate&gt;
   &lt;/applic&gt;
   &lt;para&gt;Record the installed bracket type.&lt;/para&gt;
+&lt;/proceduralStep&gt;
+
+&lt;proceduralStep&gt;
+  &lt;para&gt;Tighten the mounting bolts to the approved torque values.&lt;/para&gt;
+  &lt;note&gt;
+    &lt;para&gt;Torque values are controlled in the standard torque values data module.&lt;/para&gt;
+  &lt;/note&gt;
+&lt;/proceduralStep&gt;
+
+&lt;proceduralStep&gt;
+  &lt;para&gt;Pressurize the hydraulic system.&lt;/para&gt;
+  &lt;note&gt;
+    &lt;para&gt;Test pressure and hold time are controlled by approved engineering data.&lt;/para&gt;
+  &lt;/note&gt;
 &lt;/proceduralStep&gt;</pre>
 
-        <a class="button" href="s1000d/README.md">Read S1000D notes</a>
         <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-040A-A.xml">View overview data module</a>
         <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-520A-A.xml">View removal data module</a>
         <a class="button secondary" href="s1000d/DMC-HX20-A-29-10-00-00A-720A-A.xml">View installation data module</a>
@@ -542,7 +713,7 @@ Full maintenance manual          Publication module</pre>
     </div>
 </div>
 
-<div class="card">
+<div class="card" id="dmrl">
     <h3>Mini DMRL</h3>
     <pre>Data module code                              Information type       Status
 ------------------------------------------   --------------------   --------
@@ -571,6 +742,8 @@ PMC-HX20-A-29-10-00-00A-000A-A.xml           Publication module     Draft</pre>
 </div>
 
 </section>
+
+<a class="back-top" href="#top">Back to top</a>
 
 <h2>What This Demonstrates</h2>
 
