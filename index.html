@@ -245,6 +245,53 @@ h3{
     padding:12px;
 }
 
+.rendered-steps{
+    display:grid;
+    gap:16px;
+    grid-template-columns:repeat(3, 1fr);
+    margin-top:12px;
+}
+
+.rendered-module{
+    background:#fffaf0;
+    border:1px solid var(--s1000d-line);
+    padding:16px;
+}
+
+.rendered-module h4{
+    color:var(--accent);
+    font-size:13px;
+    letter-spacing:.08em;
+    margin:0 0 10px;
+    text-transform:uppercase;
+}
+
+.rendered-module ol{
+    margin:0;
+    padding-left:22px;
+}
+
+.rendered-module li{
+    margin:8px 0;
+}
+
+.rendered-note{
+    color:var(--muted);
+    display:block;
+    font-size:13px;
+    line-height:1.45;
+    margin-top:4px;
+}
+
+.applicability-note{
+    border-left:3px solid var(--accent);
+    background:var(--accent-soft);
+    display:block;
+    font-size:13px;
+    margin-top:4px;
+    padding:6px 8px;
+}
+
 .module-actions{
     display:flex;
     flex-wrap:wrap;
@@ -437,6 +484,7 @@ pre{
     .grid,
     .module-cards,
     .summary-points,
+    .rendered-steps,
     .comparison,
     .deliverable-list,
     .summary{
@@ -672,14 +720,42 @@ Full maintenance manual          Publication module</pre>
 
 <div class="output-view">
     <div class="procedure-summary">
-        <h3>Rendered Procedure Summary</h3>
+        <h3>Rendered Procedure View</h3>
         <p>
-        The legacy procedure is separated into focused modules instead of one long document section.
+        This is a simplified publication-style view of the procedural text contained in the removal, installation and operational test data modules below.
         </p>
-        <div class="summary-points">
-            <div class="summary-point"><strong>Removal:</strong> disconnect, cap lines and remove pump.</div>
-            <div class="summary-point"><strong>Installation:</strong> install pump, reconnect lines and reference approved torque data.</div>
-            <div class="summary-point"><strong>Operational test:</strong> pressurize, inspect leakage and close access panel 32-A.</div>
+        <div class="rendered-steps">
+            <div class="rendered-module">
+                <h4>520A Removal</h4>
+                <ol>
+                    <li>Disconnect electrical connector P-01 from the hydraulic pump assembly.</li>
+                    <li>Disconnect the hydraulic return and pressure lines. Install protective caps immediately after each line is disconnected.</li>
+                    <li>Remove the four mounting bolts from the support bracket.</li>
+                    <li>Record the installed bracket type before the pump is lifted from the aircraft.<span class="applicability-note">Applies to HX-20 MK2 aircraft.</span></li>
+                    <li>Lift the hydraulic pump from the bracket and place it on a clean inspection surface.</li>
+                </ol>
+            </div>
+            <div class="rendered-module">
+                <h4>720A Installation</h4>
+                <ol>
+                    <li>Position the hydraulic pump assembly on the support bracket.</li>
+                    <li>Verify that bracket type B is installed and aligned.<span class="applicability-note">Applies to HX-20 MK2 aircraft.</span></li>
+                    <li>Install the mounting bolts by hand.</li>
+                    <li>Tighten the mounting bolts to the approved torque values.<span class="rendered-note">Torque values are controlled in the standard torque values data module and must be verified before installation.</span></li>
+                    <li>Reconnect the hydraulic pressure and return lines.<span class="rendered-note">Line and fitting identification must be verified against the approved hydraulic schematic before release.</span></li>
+                    <li>Reconnect electrical connector P-01.</li>
+                </ol>
+            </div>
+            <div class="rendered-module">
+                <h4>790A Operational Test</h4>
+                <ol>
+                    <li>Reconnect aircraft electrical power.</li>
+                    <li>Pressurize the hydraulic system.<span class="rendered-note">Test pressure and hold time are controlled by the hydraulic system test limits data module and must be confirmed before release.</span></li>
+                    <li>Inspect hydraulic lines and fittings for leakage during operation.<span class="rendered-note">Maximum permitted leakage rate is controlled by approved engineering data and is not invented in this portfolio example.</span></li>
+                    <li>Verify stable hydraulic pressure during flight control surface checks.<span class="rendered-note">Acceptable pressure range must be verified against the normal operating pressure reference before release.</span></li>
+                    <li>Close access panel 32-A and secure fasteners.</li>
+                </ol>
+            </div>
         </div>
         <div class="module-actions">
             <a class="button" href="s1000d/README.md">Read S1000D notes</a>
@@ -689,7 +765,7 @@ Full maintenance manual          Publication module</pre>
 
     <div class="xml-panel">
 <pre>&lt;proceduralStep&gt;
-  &lt;para&gt;Disconnect electrical connector P-01.&lt;/para&gt;
+  &lt;para&gt;Disconnect electrical connector P-01 from the hydraulic pump assembly.&lt;/para&gt;
 &lt;/proceduralStep&gt;
 
 &lt;proceduralStep&gt;
@@ -700,20 +776,20 @@ Full maintenance manual          Publication module</pre>
               applicPropertyValues="mk2"/&gt;
     &lt;/evaluate&gt;
   &lt;/applic&gt;
-  &lt;para&gt;Record the installed bracket type.&lt;/para&gt;
+  &lt;para&gt;Record the installed bracket type before the pump is lifted from the aircraft.&lt;/para&gt;
 &lt;/proceduralStep&gt;
 
 &lt;proceduralStep&gt;
   &lt;para&gt;Tighten the mounting bolts to the approved torque values.&lt;/para&gt;
   &lt;note&gt;
-    &lt;para&gt;Torque values are controlled in the standard torque values data module.&lt;/para&gt;
+    &lt;para&gt;Torque values are controlled in the standard torque values data module and must be verified before installation.&lt;/para&gt;
   &lt;/note&gt;
 &lt;/proceduralStep&gt;
 
 &lt;proceduralStep&gt;
   &lt;para&gt;Pressurize the hydraulic system.&lt;/para&gt;
   &lt;note&gt;
-    &lt;para&gt;Test pressure and hold time are controlled by approved engineering data.&lt;/para&gt;
+    &lt;para&gt;Test pressure and hold time are controlled by the hydraulic system test limits data module and must be confirmed before release.&lt;/para&gt;
   &lt;/note&gt;
 &lt;/proceduralStep&gt;</pre>
 
