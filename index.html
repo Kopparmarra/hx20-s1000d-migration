@@ -468,6 +468,73 @@ iframe{
     border:1px solid var(--ink);
 }
 
+.inline-info-button{
+    background:white;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    cursor:pointer;
+    display:inline-block;
+    font:inherit;
+    font-size:14px;
+    margin-top:12px;
+    padding:7px 10px;
+}
+
+.modal-backdrop{
+    align-items:center;
+    background:rgba(0,0,0,.28);
+    display:none;
+    inset:0;
+    justify-content:center;
+    padding:24px;
+    position:fixed;
+    z-index:40;
+}
+
+.modal-backdrop.open{
+    display:flex;
+}
+
+.modal-card{
+    background:#ffffff;
+    border:1px solid var(--line);
+    max-width:680px;
+    padding:24px;
+    width:min(100%, 680px);
+}
+
+.modal-top{
+    align-items:start;
+    display:flex;
+    gap:18px;
+    justify-content:space-between;
+}
+
+.modal-top h3{
+    margin-bottom:6px;
+}
+
+.modal-close{
+    background:white;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    cursor:pointer;
+    flex:0 0 auto;
+    font:inherit;
+    font-size:14px;
+    padding:6px 9px;
+}
+
+.icn-example{
+    background:#f7f7f7;
+    border:1px solid var(--line);
+    font-family:monospace;
+    font-size:14px;
+    margin:14px 0;
+    overflow-wrap:anywhere;
+    padding:12px;
+}
+
 pre{
     background:#f7f7f7;
     padding:18px;
@@ -734,8 +801,36 @@ Full maintenance manual          Publication module</pre>
         <p>
         In a production S1000D workflow, this illustration would be managed as a controlled information entity with an ICN and stored separately from the procedure data module. The procedure module would reference the illustration, while applicability rules would define whether it applies to MK1, MK2 or both configurations.
         </p>
+        <button class="inline-info-button" type="button" data-open-modal="icn-modal">View ICN example</button>
     </div>
 </figure>
+
+<div class="modal-backdrop" id="icn-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="icn-modal-title">
+        <div class="modal-top">
+            <div>
+                <p class="kicker">Information Control Number</p>
+                <h3 id="icn-modal-title">Example ICN for this illustration</h3>
+            </div>
+            <button class="modal-close" type="button" data-close-modal>Close</button>
+        </div>
+        <p>
+        An ICN identifies a controlled illustration or other information object separately from the data module text.
+        </p>
+        <div class="icn-example">ICN-HX20-A-291000-A-001-01</div>
+        <p>
+        In this portfolio example, the SVG file is named like a controlled ICN-style asset:
+        </p>
+        <div class="icn-example">assets/ICN-HX20-A-291000-A-001-01.svg</div>
+        <p>
+        A procedure data module could reference it like this:
+        </p>
+<pre>&lt;figure&gt;
+  &lt;title&gt;Hydraulic pump assembly&lt;/title&gt;
+  &lt;graphic infoEntityIdent="ICN-HX20-A-291000-A-001-01"/&gt;
+&lt;/figure&gt;</pre>
+    </div>
+</div>
 
 <div class="flow-label">Source data modules</div>
 
@@ -904,6 +999,42 @@ PMC-HX20-A-29-10-00-00A-000A-A.xml           Publication module     Draft</pre>
 </div>
 
 </main>
+
+<script>
+document.querySelectorAll("[data-open-modal]").forEach(button => {
+    button.addEventListener("click", () => {
+        const modal = document.getElementById(button.dataset.openModal);
+        if (!modal) return;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+    });
+});
+
+document.querySelectorAll("[data-close-modal]").forEach(button => {
+    button.addEventListener("click", () => {
+        const modal = button.closest(".modal-backdrop");
+        if (!modal) return;
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+    });
+});
+
+document.querySelectorAll(".modal-backdrop").forEach(modal => {
+    modal.addEventListener("click", event => {
+        if (event.target !== modal) return;
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+    });
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    document.querySelectorAll(".modal-backdrop.open").forEach(modal => {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+    });
+});
+</script>
 
 </body>
 </html>
